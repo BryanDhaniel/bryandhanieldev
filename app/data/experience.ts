@@ -1,34 +1,49 @@
 export type ExperienceItem = {
   period: string;
   role: string;
-  context: string;
+  organization: string;
+  location: string;
   description: string;
   highlights: string[];
 };
 
 export const experience: ExperienceItem[] = [
   {
-    period: "NOW",
-    role: "Independent creative developer",
-    context: "Selected product and brand collaborations",
+    period: "JUL — SEP 2025",
+    role: "Software & AI Engineer Intern",
+    organization: "National Research and Innovation Agency (BRIN)",
+    location: "Bandung, Indonesia",
     description:
-      "Partnering with thoughtful teams to translate a rough idea into a sharp, expressive digital experience.",
-    highlights: ["Creative direction through launch", "Design systems that can grow"],
+      "Built a full-stack Next.js application that detects emotions and predicts potential bullying from voice, wiring the Web Audio API, an audio classification model, and back-end services into one working pipeline.",
+    highlights: [
+      "Designed, trained, and evaluated an audio classification model for emotion and bullying-pattern detection",
+      "Integrated RESTful APIs for front-end/back-end data exchange",
+      "Owned the Web Audio API integration end to end",
+    ],
   },
   {
-    period: "RECENT",
-    role: "Design + engineering collaborator",
-    context: "Product-minded teams and founders",
+    period: "FEB — JUN 2025",
+    role: "Software & AI Engineer — Researchship",
+    organization: "Center of Excellence HUMIC, Telkom University",
+    location: "Bandung, Indonesia",
     description:
-      "Working at the seam between design intent and real-world implementation, where the most useful details live.",
-    highlights: ["Prototypes that make decisions easier", "Interfaces built for actual use"],
+      "Developed a web and mobile application to detect skin cancer (melanoma and carcinoma) using a DenseNet-based image classification model, shipped across two platforms.",
+    highlights: [
+      "Built the web platform on the MERN stack and the mobile app in Flutter",
+      "Delivered 2 solutions improving diagnostic efficiency and user experience",
+      "Contributed to AI integration, front-end implementation, and UI/UX design",
+    ],
   },
   {
-    period: "FOUNDATION",
-    role: "Visual problem solver",
-    context: "Identity, interaction, and digital craft",
+    period: "DEC 2024 — MAY 2025",
+    role: "Software Engineer Intern",
+    organization: "Telkom University",
+    location: "Bandung, Indonesia",
     description:
-      "Building a practice around taste, systems thinking, and the small movements that make a screen feel alive.",
-    highlights: ["Strong visual hierarchy", "Purposeful motion and feedback"],
+      "Applied full-stack development to build an AI-powered desktop/chat application using Ollama open-source LLMs to support internal academic needs.",
+    highlights: [
+      "Designed and implemented a React-based front end with an intuitive UX",
+      "Integrated the front end with the back-end API, connecting the UI to the AI model logic",
+    ],
   },
 ];
