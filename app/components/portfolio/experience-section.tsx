@@ -28,7 +28,7 @@ export function ExperienceSection() {
           <SectionMarker number="02" label="Experience" dark />
           <div>
             <h2 className="max-w-[14ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
-              {" "}The only source of knowledge is{" "}
+              &quot;{" "}The only source of knowledge is{" "}
               <span className="text-[#00ffc6]">experience.</span>&quot;
             </h2>
             <p className="mt-6 flex items-center gap-3 text-xs font-black uppercase tracking-[0.17em] text-white/45">
