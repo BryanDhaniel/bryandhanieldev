@@ -15,6 +15,8 @@
 html {
   scroll-behavior: smooth;
   background: var(--background);
+  scrollbar-color: #00ffc6 #101010;
+  scrollbar-width: thin;
 }
 
 body {
@@ -27,6 +29,31 @@ body {
 ::selection {
   background: #00ffc6;
   color: #101010;
+}
+
+/* A compact, high-contrast scrollbar that belongs to the site's palette. */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101010;
+  border-left: 1px solid rgba(244, 241, 235, 0.12);
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 48px;
+  border: 3px solid #101010;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #00ffc6 0%, #d7ff54 52%, #ff3366 100%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #f4f1eb 0%, #00ffc6 48%, #ff3366 100%);
+}
+
+::-webkit-scrollbar-corner {
+  background: #101010;
 }
 
 :focus-visible {
