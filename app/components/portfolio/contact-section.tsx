@@ -135,7 +135,7 @@ export function ContactSection() {
           </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">
-              <PiGlobeHemisphereWestBold className="cs-globe" /> Worldwide
+              <PiGlobeHemisphereWestBold className="cs-globe" /> BryanDhaniel
             </span>
             <a
               href="#top"
