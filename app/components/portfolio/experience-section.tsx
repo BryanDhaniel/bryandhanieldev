@@ -1,12 +1,38 @@
 "use client";
 
 import { useState } from "react";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { PiSparkleFill, PiCaretDownBold, PiMapPinFill } from "react-icons/pi";
 import { SectionMarker } from "@/app/components/ui/section-marker";
 import { experience } from "@/app/data/experience";
 
 export function ExperienceSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const shouldReduceMotion = useReducedMotion();
+
+  const fadeUp: Variants = shouldReduceMotion
+    ? { hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.3 } } }
+    : {
+        hidden: { opacity: 0, y: 32, scale: 0.98 },
+        show: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: { type: "spring", stiffness: 90, damping: 16, mass: 0.7 },
+        },
+      };
+
+  const rowList: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+  };
+
+  const rowItem: Variants = shouldReduceMotion
+    ? { hidden: { opacity: 0 }, show: { opacity: 1, transition: { duration: 0.3 } } }
+    : {
+        hidden: { opacity: 0, y: 24 },
+        show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 110, damping: 18, mass: 0.6 } },
+      };
 
   return (
     <section
@@ -17,14 +43,14 @@ export function ExperienceSection() {
         aria-hidden="true"
         className="absolute -right-48 top-0 h-[42rem] w-[42rem] rounded-full bg-[#00ffc6]/10 blur-3xl"
       />
-      <style>{`
-        @keyframes experience-row-in {
-          from { opacity: 0; transform: translateY(12px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-      <div className="relative mx-auto max-w-[1400px]">
-        <div className="grid gap-8 border-b border-white/15 pb-9 lg:grid-cols-[0.7fr_1.3fr] lg:pb-12">
+      <div className="relative mx-auto max-w-350">
+        <motion.div
+          className="grid gap-8 border-b border-white/15 pb-9 lg:grid-cols-[0.7fr_1.3fr] lg:pb-12"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={fadeUp}
+        >
           <SectionMarker number="02" label="Experience" dark />
           <div>
             <h2 className="max-w-[14ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
@@ -36,20 +62,24 @@ export function ExperienceSection() {
               Albert Einstein
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="relative mt-10 border-t border-white/15 lg:mt-14">
+        <motion.div
+          className="relative mt-10 border-t border-white/15 lg:mt-14"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={rowList}
+        >
           {experience.map((item, index) => {
             const isOpen = openIndex === index;
             const number = String(index + 1).padStart(2, "0");
 
             return (
-              <article
+              <motion.article
                 key={`${item.role}-${item.period}`}
-                className="group/row relative border-b border-white/15 opacity-0 motion-reduce:opacity-100"
-                style={{
-                  animation: `experience-row-in 0.6s ease-out ${index * 60}ms forwards`,
-                }}
+                variants={rowItem}
+                className="group/row relative border-b border-white/15"
               >
                 <span
                   aria-hidden="true"
@@ -135,10 +165,10 @@ export function ExperienceSection() {
                     </div>
                   </div>
                 </div>
-              </article>
+              </motion.article>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
