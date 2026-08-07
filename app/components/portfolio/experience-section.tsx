@@ -41,7 +41,7 @@ export function ExperienceSection() {
     >
       <div
         aria-hidden="true"
-        className="absolute -right-48 top-0 h-[42rem] w-[42rem] rounded-full bg-[#00ffc6]/10 blur-3xl"
+        className="absolute -right-48 top-0 h-168 w-2xl rounded-full bg-[#00ffc6]/10 blur-3xl"
       />
       <div className="relative mx-auto max-w-350">
         <motion.div
