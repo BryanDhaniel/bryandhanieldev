@@ -117,8 +117,10 @@ export function ContactSection() {
         >
           <div>
             <p className="text-[10px] font-black uppercase tracking-[0.18em] text-mint">A good brief is a great beginning</p>
-            <h2 className="mt-4 max-w-[14ch] text-[clamp(2.75rem,8.5vw,7rem)] font-black leading-[0.82] tracking-[-0.06em] text-balance">
-              Got something worth building? Let&apos;s <span className="text-mint">talk.</span>
+            <h2 className="mt-4 max-w-[16ch] text-[clamp(2.5rem,9vw,7.5rem)] font-black leading-[0.84] tracking-[-0.06em] text-balance">
+              Let&apos;s build{" "}
+              <span className="text-transparent [-webkit-text-stroke:1.5px_#00ffc6]">something</span>{" "}
+              <span className="text-mint">real.</span>
             </h2>
           </div>
           <div className="flex flex-col justify-end gap-7">

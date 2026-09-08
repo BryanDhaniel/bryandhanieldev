@@ -52,19 +52,14 @@ export function ExperienceSection() {
           variants={fadeUp}
         >
           <SectionMarker number="02" label="Experience" dark accent="#00ffc6" />
-          <figure className="mt-8 max-w-[44ch] border-l-2 border-mint/40 pl-5">
-            <blockquote className="text-lg font-medium leading-snug text-white/70 sm:text-xl">
-              &quot;{" "}The only source of knowledge is{" "}
-              <span className="text-mint">experience.</span>&quot;
-            </blockquote>
-            <figcaption className="mt-3 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
-              <span className="h-px w-8 bg-white/25" />
-              Albert Einstein
-            </figcaption>
-          </figure>
-          <h2 className="mt-8 max-w-[16ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
-            The work, and what it taught me.
+          <h2 className="mt-8 max-w-[24ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
+            &quot;The only source of knowledge is{" "}
+            <span className="text-mint">experience.</span>&quot;
           </h2>
+          <figcaption className="mt-6 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
+            <span className="h-px w-8 bg-white/25" />
+            Albert Einstein
+          </figcaption>
         </motion.header>
 
         <motion.div
