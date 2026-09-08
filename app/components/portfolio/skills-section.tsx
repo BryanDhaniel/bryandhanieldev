@@ -77,25 +77,25 @@ export function SkillsSection() {
       };
 
   return (
-    <section id="skills" className="scroll-mt-4 bg-[#d8d5d0] px-5 py-20 text-[#101010] sm:px-8 sm:py-28 lg:px-12 lg:py-36">
-      <div className="mx-auto max-w-350">
-        <motion.div
-          className="grid gap-8 border-b border-black/15 pb-9 lg:grid-cols-[0.7fr_1.3fr] lg:pb-12"
+    <section id="skills" className="grain scroll-mt-4 relative overflow-hidden bg-stone px-5 py-20 text-ink sm:px-8 sm:py-28 lg:px-12 lg:py-36">
+      <div className="mx-auto max-w-[1400px]">
+        <motion.header
+          className="border-b border-ink/15 pb-9 lg:pb-12"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
         >
-          <SectionMarker number="03" label="Engineering toolbox" />
-          <div>
-            <h2 className="max-w-[10ch] text-[clamp(3rem,7.6vw,7.5rem)] font-black leading-[0.83] tracking-[-0.075em] text-balance">
+          <SectionMarker number="03" label="Engineering toolbox" accent="#ff3366" />
+          <div className="mt-7 grid gap-6 lg:grid-cols-[1.5fr_0.5fr] lg:items-end">
+            <h2 className="max-w-[14ch] text-[clamp(3rem,7.6vw,7.5rem)] font-black leading-[0.82] tracking-[-0.075em] text-balance">
               Software systems and AI, built with intent.
             </h2>
-            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-black/60 sm:text-lg">
+            <p className="border-l border-ink/15 pl-5 text-sm font-medium leading-relaxed text-ink/60 sm:text-base">
               From full-stack product engineering to machine-learning experiments, I choose tools to make the work useful, reliable, and ready to grow.
             </p>
           </div>
-        </motion.div>
+        </motion.header>
 
         <motion.div
           className="mt-10 grid gap-4 md:grid-cols-2 lg:mt-14 lg:gap-5"
@@ -112,21 +112,25 @@ export function SkillsSection() {
                 variants={cardItem}
                 whileHover={shouldReduceMotion ? undefined : { y: -6 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="group relative overflow-hidden rounded-3xl border border-black/10 bg-[#f4f1eb] p-5 sm:p-7"
+                className="group relative overflow-hidden rounded-3xl border border-ink/10 bg-paper p-5 shadow-[0_16px_36px_-24px_rgba(16,16,16,0.4)] sm:p-7"
               >
-                <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-30 blur-2xl transition-transform duration-500 group-hover:scale-150" style={{ backgroundColor: group.color }} />
+                <div
+                  aria-hidden="true"
+                  className="absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-30 blur-2xl transition-transform duration-500 group-hover:scale-150"
+                  style={{ backgroundColor: group.color }}
+                />
                 <motion.div variants={cardInner} className="relative">
                   <div className="flex items-start justify-between gap-5">
                     <motion.div
                       variants={cardInnerItem}
                       whileHover={shouldReduceMotion ? undefined : { rotate: 8, scale: 1.08 }}
                       transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                      className="grid h-11 w-11 place-items-center rounded-2xl bg-[#101010]"
+                      className="grid h-11 w-11 place-items-center rounded-2xl bg-ink"
                       style={{ color: group.color }}
                     >
                       <Icon size={22} />
                     </motion.div>
-                    <motion.span variants={cardInnerItem} className="text-[10px] font-black tracking-[0.16em] text-black/55">
+                    <motion.span variants={cardInnerItem} className="text-[10px] font-black tracking-[0.16em] text-ink/55">
                       0{index + 1}
                     </motion.span>
                   </div>
@@ -134,7 +138,7 @@ export function SkillsSection() {
                     <motion.h3 variants={cardInnerItem} className="text-2xl font-black tracking-[-0.055em]">
                       {group.title}
                     </motion.h3>
-                    <motion.p variants={cardInnerItem} className="mt-3 max-w-sm text-sm font-medium leading-relaxed text-black/60">
+                    <motion.p variants={cardInnerItem} className="mt-3 max-w-sm text-sm font-medium leading-relaxed text-ink/60">
                       {group.description}
                     </motion.p>
                     <motion.div variants={tagContainer} className="mt-6 flex flex-wrap gap-2">
@@ -142,7 +146,7 @@ export function SkillsSection() {
                         <motion.span
                           key={skill}
                           variants={tagItem}
-                          className="rounded-full border border-black/10 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-black/55"
+                          className="rounded-full border border-ink/10 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-ink/55"
                         >
                           {skill}
                         </motion.span>
@@ -156,14 +160,14 @@ export function SkillsSection() {
         </motion.div>
 
         <motion.div
-          className="mt-5 grid overflow-hidden rounded-3xl bg-[#101010] text-[#f4f1eb] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,.8fr)]"
+          className="mt-5 grid overflow-hidden rounded-3xl bg-ink text-paper lg:grid-cols-[minmax(0,1fr)_minmax(22rem,.8fr)]"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
         >
           <div className="p-6 sm:p-8 lg:p-10">
-            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-[#00ffc6]">
+            <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-mint">
               <PiCirclesFourBold size={15} />
               Technology orbit
             </div>
@@ -182,12 +186,12 @@ export function SkillsSection() {
             <motion.div
               aria-hidden="true"
               variants={ring}
-              className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#00ffc6]/35 shadow-[0_0_65px_rgba(0,255,198,0.25)]"
+              className="absolute left-1/2 top-1/2 h-44 w-44 -translate-x-1/2 -translate-y-1/2 rounded-full border border-mint/35 shadow-[0_0_65px_rgba(0,255,198,0.25)]"
             />
             <motion.div
               aria-hidden="true"
               variants={ring}
-              className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#ff3366]/45"
+              className="absolute left-1/2 top-1/2 h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-full border border-rose/45"
             />
             <div className="relative z-10 h-full min-h-80">
               <IconCloud iconSlugs={skillCloudIcons} skillLabels={skillCloudLabels} />

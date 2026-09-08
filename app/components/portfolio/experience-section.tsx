@@ -37,40 +37,47 @@ export function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="scroll-mt-4 relative overflow-hidden bg-[#101010] px-5 py-20 text-[#f4f1eb] sm:px-8 sm:py-28 lg:px-12 lg:py-36"
+      className="scroll-mt-4 relative overflow-hidden bg-ink px-5 py-20 text-paper sm:px-8 sm:py-28 lg:px-12 lg:py-36"
     >
       <div
         aria-hidden="true"
-        className="absolute -right-48 top-0 h-168 w-2xl rounded-full bg-[#00ffc6]/10 blur-3xl"
+        className="absolute -right-40 -top-10 h-[34rem] w-[34rem] rounded-full bg-mint/10 blur-3xl"
       />
-      <div className="relative mx-auto max-w-350">
-        <motion.div
-          className="grid gap-8 border-b border-white/15 pb-9 lg:grid-cols-[0.7fr_1.3fr] lg:pb-12"
+      <div className="relative mx-auto max-w-[1400px]">
+        <motion.header
+          className="border-b border-white/15 pb-9 lg:pb-12"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={fadeUp}
         >
-          <SectionMarker number="02" label="Experience" dark />
-          <div>
-            <h2 className="max-w-[14ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
+          <SectionMarker number="02" label="Experience" dark accent="#00ffc6" />
+          <figure className="mt-8 max-w-[44ch] border-l-2 border-mint/40 pl-5">
+            <blockquote className="text-lg font-medium leading-snug text-white/70 sm:text-xl">
               &quot;{" "}The only source of knowledge is{" "}
-              <span className="text-[#00ffc6]">experience.</span>&quot;
-            </h2>
-            <p className="mt-6 flex items-center gap-3 text-xs font-black uppercase tracking-[0.17em] text-white/45">
+              <span className="text-mint">experience.</span>&quot;
+            </blockquote>
+            <figcaption className="mt-3 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
               <span className="h-px w-8 bg-white/25" />
               Albert Einstein
-            </p>
-          </div>
-        </motion.div>
+            </figcaption>
+          </figure>
+          <h2 className="mt-8 max-w-[16ch] text-[clamp(2.5rem,6.2vw,6rem)] font-black leading-[0.9] tracking-[-0.06em] text-balance">
+            The work, and what it taught me.
+          </h2>
+        </motion.header>
 
         <motion.div
-          className="relative mt-10 border-t border-white/15 lg:mt-14"
+          className="relative mt-10 pl-10 lg:mt-14 lg:pl-16"
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-80px" }}
           variants={rowList}
         >
+          <span
+            aria-hidden="true"
+            className="absolute left-[11px] top-3 bottom-3 w-px bg-white/15 lg:left-[15px]"
+          />
           {experience.map((item, index) => {
             const isOpen = openIndex === index;
             const number = String(index + 1).padStart(2, "0");
@@ -79,13 +86,24 @@ export function ExperienceSection() {
               <motion.article
                 key={`${item.role}-${item.period}`}
                 variants={rowItem}
-                className="group/row relative border-b border-white/15"
+                className="group/row relative border-b border-white/15 py-2"
               >
                 <span
                   aria-hidden="true"
-                  className={`pointer-events-none absolute -top-2 right-0 select-none text-[6.5rem] font-black leading-none tracking-[-0.06em] transition-all duration-500 ease-out motion-reduce:transition-none sm:text-[9rem] lg:-top-6 lg:text-[12rem] ${
+                  className={`absolute left-[-41px] top-9 grid h-6 w-6 place-items-center rounded-full border transition-colors duration-500 lg:left-[-61px] ${
                     isOpen
-                      ? "text-[#00ffc6] opacity-100"
+                      ? "border-mint bg-mint text-ink"
+                      : "border-white/25 bg-ink text-white/60 group-hover/row:border-mint"
+                  }`}
+                >
+                  <span className="text-[9px] font-black">{number}</span>
+                </span>
+
+                <span
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute -top-1 right-0 select-none text-[6.5rem] font-black leading-none tracking-[-0.06em] transition-all duration-500 ease-out motion-reduce:transition-none sm:text-[9rem] lg:-top-3 lg:text-[12rem] ${
+                    isOpen
+                      ? "text-mint opacity-100"
                       : "text-transparent opacity-50 [-webkit-text-stroke:1px_rgba(244,241,235,0.22)] group-hover/row:opacity-75"
                   }`}
                 >
@@ -97,7 +115,7 @@ export function ExperienceSection() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
                   aria-controls={`experience-panel-${index}`}
-                  className="group relative z-10 flex w-full items-start justify-between gap-6 py-7 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#00ffc6] sm:py-9"
+                  className="group relative z-10 flex w-full items-start justify-between gap-6 py-7 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint sm:py-9"
                 >
                   <span className="flex flex-col gap-2">
                     <span className="text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
@@ -106,13 +124,13 @@ export function ExperienceSection() {
                     <span
                       className={`font-black tracking-[-0.055em] transition-[color,font-size] duration-500 ease-out motion-reduce:transition-colors ${
                         isOpen
-                          ? "text-[clamp(1.5rem,4vw,3rem)] text-[#00ffc6]"
-                          : "text-lg text-[#f4f1eb] group-hover:text-[#00ffc6] sm:text-xl"
+                          ? "text-[clamp(1.5rem,4vw,3rem)] text-mint"
+                          : "text-lg text-paper group-hover:text-mint sm:text-xl"
                       }`}
                     >
                       {item.role}
                     </span>
-                    <span className="text-sm font-bold text-[#d7ff54]">{item.organization}</span>
+                    <span className="text-sm font-bold text-lime">{item.organization}</span>
                     <span className="flex items-center gap-1.5 text-xs font-medium text-white/45">
                       <PiMapPinFill aria-hidden="true" size={12} className="shrink-0 text-white/35" />
                       {item.location}
@@ -123,7 +141,7 @@ export function ExperienceSection() {
                     aria-hidden="true"
                     size={18}
                     className={`mt-2 shrink-0 text-white/50 transition-transform duration-300 motion-reduce:transition-none ${
-                      isOpen ? "rotate-180 text-[#00ffc6]" : ""
+                      isOpen ? "rotate-180 text-mint" : ""
                     }`}
                   />
                 </button>
@@ -157,7 +175,7 @@ export function ExperienceSection() {
                       >
                         {item.highlights.map((highlight) => (
                           <li key={highlight} className="flex gap-2">
-                            <PiSparkleFill aria-hidden="true" className="mt-0.5 shrink-0 text-[#ff3366]" size={13} />
+                            <PiSparkleFill aria-hidden="true" className="mt-0.5 shrink-0 text-rose" size={13} />
                             {highlight}
                           </li>
                         ))}
