@@ -6,7 +6,7 @@ import { ProjectCard } from "@/app/components/projects/project-card";
 import { projects } from "@/app/data/projects";
 
 export const metadata: Metadata = {
-  title: "Project Archive — Bryan Dhaniel",
+  title: "Project Archive | Bryan Dhaniel",
   description: "Browse all software, AI, mobile, and research projects by Bryan Dhaniel.",
 };
 
@@ -21,11 +21,11 @@ export default function ProjectsPage() {
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-ink text-mint transition-transform duration-300 group-hover:-rotate-6">BD</span>
             <span className="hidden sm:inline">Back home</span>
           </Link>
-          <div className="hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-ink/45 md:flex">
+          <div className="hidden items-center gap-2 text-[10px] font-black uppercase tracking-[0.16em] text-ink/60 md:flex">
             <span className="h-2 w-2 rounded-full bg-mint shadow-[0_0_10px_#00ffc6]" />
             Project archive
           </div>
-          <Link href="/#contact" className="rounded-full bg-ink px-4 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-paper transition-colors hover:bg-rose">
+          <Link href="/#contact" className="rounded-full bg-ink px-4 py-2 text-[10px] font-black uppercase tracking-[0.12em] text-paper transition-colors hover:bg-mint hover:text-ink">
             Say hello
           </Link>
         </div>
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
         <div aria-hidden="true" className="absolute -right-28 -top-44 h-[33rem] w-[33rem] rounded-full border-[62px] border-mint/40" />
         <div aria-hidden="true" className="absolute bottom-0 left-0 right-0 h-2/3 opacity-35 [background-image:linear-gradient(rgba(16,16,16,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(16,16,16,0.12)_1px,transparent_1px)] [background-size:38px_38px]" />
         <div className="relative mx-auto max-w-[1400px]">
-          <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.18em] text-ink/55">
+          <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.18em] text-ink/65">
             <span className="grid h-7 w-7 place-items-center rounded-full border border-ink/15 bg-paper">01</span>
             All projects
             <span className="h-px w-10 bg-ink/15" />
@@ -44,13 +44,13 @@ export default function ProjectsPage() {
             <div>
               <h1 className="max-w-[9ch] text-[clamp(4rem,11vw,11rem)] font-black leading-[0.76] tracking-[-0.09em]">All projects.</h1>
               <p className="mt-7 max-w-xl text-base font-medium leading-relaxed text-ink/65 sm:text-lg">
-                A growing archive of product, web, mobile, AI, and research work—each project with its own context, contribution, and outcome.
+                A growing archive of product, web, mobile, AI, and research work, each project with its own context, contribution, and outcome.
               </p>
             </div>
             <div className="rounded-[1.5rem] border border-ink/10 bg-paper/80 p-5 backdrop-blur-sm sm:p-6">
               <div className="flex items-end justify-between gap-5">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-ink/50">Selected work</p>
+                  <p className="text-[10px] font-black uppercase tracking-[0.15em] text-ink/60">Selected work</p>
                   <p className="mt-1 text-5xl font-black tracking-[-0.08em]">{projects.length}</p>
                 </div>
                 <PiFolderOpenBold className="text-rose" size={31} />
@@ -70,8 +70,8 @@ export default function ProjectsPage() {
       <section className="px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
         <div className="mx-auto max-w-[1400px]">
           <div className="mb-7 flex flex-col gap-3 border-b border-ink/10 pb-5 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-[10px] font-black uppercase tracking-[0.16em] text-ink/55">Browse the full collection</p>
-            <p className="text-sm font-medium text-ink/55">New work can be added from one project data entry.</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.16em] text-ink/60">Browse the full collection</p>
+            <p className="text-sm font-medium text-ink/60">New work can be added from one project data entry.</p>
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (

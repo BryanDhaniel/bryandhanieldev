@@ -91,7 +91,7 @@ export function SkillsSection() {
             <h2 className="max-w-[14ch] text-[clamp(3rem,7.6vw,7.5rem)] font-black leading-[0.82] tracking-[-0.075em] text-balance">
               Software systems and AI, built with intent.
             </h2>
-            <p className="border-l border-ink/15 pl-5 text-sm font-medium leading-relaxed text-ink/60 sm:text-base">
+            <p className="border-l border-ink/15 pl-5 text-sm font-medium leading-relaxed text-ink/65 sm:text-base">
               From full-stack product engineering to machine-learning experiments, I choose tools to make the work useful, reliable, and ready to grow.
             </p>
           </div>
@@ -130,7 +130,7 @@ export function SkillsSection() {
                     >
                       <Icon size={22} />
                     </motion.div>
-                    <motion.span variants={cardInnerItem} className="text-[10px] font-black tracking-[0.16em] text-ink/55">
+                    <motion.span variants={cardInnerItem} className="text-[10px] font-black tracking-[0.16em] text-ink/60">
                       0{index + 1}
                     </motion.span>
                   </div>
@@ -146,7 +146,7 @@ export function SkillsSection() {
                         <motion.span
                           key={skill}
                           variants={tagItem}
-                          className="rounded-full border border-ink/10 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-ink/55"
+                          className="rounded-full border border-ink/10 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.08em] text-ink/60"
                         >
                           {skill}
                         </motion.span>

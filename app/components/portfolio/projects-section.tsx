@@ -52,7 +52,7 @@ export function ProjectsSection() {
             </div>
             <div className="relative mt-10">
               <p className="max-w-md text-2xl font-black leading-[0.95] tracking-[-0.05em] sm:text-3xl">
-                {projects.length} projects and growing — browse the complete collection.
+                {projects.length} projects and growing. Browse the complete collection.
               </p>
               <span className="mt-4 inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.12em] text-mint">
                 View all projects

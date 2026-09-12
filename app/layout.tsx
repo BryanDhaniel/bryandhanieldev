@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bryan Dhaniel — Creative Developer",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Bryan Dhaniel | Creative Developer",
   description: "A portfolio of expressive digital experiences, product thinking, and visual craft by Bryan Dhaniel.",
   keywords: ["Bryan Dhaniel", "creative developer", "portfolio", "product design", "frontend developer"],
 };

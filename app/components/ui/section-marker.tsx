@@ -22,7 +22,7 @@ export function SectionMarker({
   return (
     <div
       className={`flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] ${
-        dark ? "text-white/55" : "text-ink/55"
+        dark ? "text-white/55" : "text-ink/65"
       } ${className}`}
     >
       <span

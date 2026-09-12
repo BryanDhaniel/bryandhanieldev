@@ -139,7 +139,7 @@ export function ContactSection() {
               <PiArrowUpRightBold className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" size={16} />
             </motion.a>
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-white/45">Find me online</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.16em] text-white/55">Find me online</p>
               <motion.div
                 className="mt-3 grid grid-cols-2 gap-2.5"
                 initial="hidden"
@@ -180,7 +180,7 @@ export function ContactSection() {
           whileInView="show"
           viewport={{ once: true, margin: "-40px" }}
           variants={footerReveal}
-          className="relative flex flex-col gap-3 border-t border-white/15 pt-4 text-[10px] font-black uppercase tracking-[0.14em] text-white/45 sm:flex-row sm:items-center sm:justify-between"
+          className="relative flex flex-col gap-3 border-t border-white/15 pt-4 text-[10px] font-black uppercase tracking-[0.14em] text-white/55 sm:flex-row sm:items-center sm:justify-between"
         >
           <span aria-hidden="true" className="cs-shimmer-line absolute inset-x-0 -top-px h-px" />
           <div className="flex items-center gap-2">

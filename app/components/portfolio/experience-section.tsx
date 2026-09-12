@@ -56,7 +56,7 @@ export function ExperienceSection() {
             &quot;The only source of knowledge is{" "}
             <span className="text-mint">experience.</span>&quot;
           </h2>
-          <figcaption className="mt-6 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
+          <figcaption className="mt-6 flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.17em] text-white/55">
             <span className="h-px w-8 bg-white/25" />
             Albert Einstein
           </figcaption>
@@ -113,7 +113,7 @@ export function ExperienceSection() {
                   className="group relative z-10 flex w-full items-start justify-between gap-6 py-7 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint sm:py-9"
                 >
                   <span className="flex flex-col gap-2">
-                    <span className="text-[10px] font-black uppercase tracking-[0.17em] text-white/45">
+                    <span className="text-[10px] font-black uppercase tracking-[0.17em] text-white/55">
                       {item.period}
                     </span>
                     <span
@@ -126,8 +126,8 @@ export function ExperienceSection() {
                       {item.role}
                     </span>
                     <span className="text-sm font-bold text-lime">{item.organization}</span>
-                    <span className="flex items-center gap-1.5 text-xs font-medium text-white/45">
-                      <PiMapPinFill aria-hidden="true" size={12} className="shrink-0 text-white/35" />
+                    <span className="flex items-center gap-1.5 text-xs font-medium text-white/55">
+                      <PiMapPinFill aria-hidden="true" size={12} className="shrink-0 text-white/55" />
                       {item.location}
                     </span>
                   </span>
@@ -135,7 +135,7 @@ export function ExperienceSection() {
                   <PiCaretDownBold
                     aria-hidden="true"
                     size={18}
-                    className={`mt-2 shrink-0 text-white/50 transition-transform duration-300 motion-reduce:transition-none ${
+                    className={`mt-2 shrink-0 text-white/55 transition-transform duration-300 motion-reduce:transition-none ${
                       isOpen ? "rotate-180 text-mint" : ""
                     }`}
                   />

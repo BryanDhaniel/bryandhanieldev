@@ -9,7 +9,7 @@ export type ExperienceItem = {
 
 export const experience: ExperienceItem[] = [
   {
-    period: "JUL — SEP 2025",
+    period: "JUL - SEP 2025",
     role: "Software & AI Engineer Intern",
     organization: "National Research and Innovation Agency (BRIN)",
     location: "Bandung, Indonesia",
@@ -22,8 +22,8 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    period: "FEB — JUN 2025",
-    role: "Software & AI Engineer — Researchship",
+    period: "FEB - JUN 2025",
+    role: "Software & AI Engineer, Researchship",
     organization: "Center of Excellence HUMIC, Telkom University",
     location: "Bandung, Indonesia",
     description:
@@ -35,7 +35,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    period: "DEC 2024 — MAY 2025",
+    period: "DEC 2024 - MAY 2025",
     role: "Software Engineer Intern",
     organization: "Telkom University",
     location: "Bandung, Indonesia",

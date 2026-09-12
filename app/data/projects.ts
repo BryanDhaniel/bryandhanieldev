@@ -32,7 +32,7 @@ export const projects: Project[] = [
     overview:
       "Ghibli Chat App is a real-time chat experience that lets people connect using email rather than a phone number. It includes straightforward authentication, messaging, and media sharing for everyday conversations.",
     purpose:
-      "I built this as my first large project to understand how a complete real-time product comes together—from authentication to data storage and live updates.",
+      "I built this as my first large project to understand how a complete real-time product comes together, from authentication to data storage and live updates.",
     contribution:
       "I owned the frontend and backend implementation, including the Firebase authentication flow, Firestore data model, and storage integration.",
     stack: ["JavaScript", "HTML", "CSS", "Firebase", "Firestore", "Storage"],
