@@ -26,8 +26,8 @@ export function ProjectCard({
     <article
       className={`project-card group relative overflow-hidden rounded-[1.4rem] border border-ink/10 bg-paper shadow-[0_18px_40px_-24px_rgba(16,16,16,0.45)] transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1.5 hover:shadow-[0_34px_60px_-28px_rgba(16,16,16,0.55)] ${className}`}
     >
-      <Link href={`/projects/${project.slug}`} className="block h-full focus-visible:outline-offset-[-5px]">
-        <div className={`relative overflow-hidden bg-ink ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
+      <Link href={`/projects/${project.slug}`} className="flex h-full flex-col focus-visible:outline-offset-[-5px]">
+        <div className={`relative grow overflow-hidden bg-ink ${featured ? "aspect-[16/10]" : "aspect-[4/3]"}`}>
           <Image
             src={project.cover}
             alt={`Preview of ${project.title}`}
@@ -58,7 +58,7 @@ export function ProjectCard({
             </span>
           </div>
         </div>
-        <div className="flex min-h-48 flex-col p-5 sm:p-6">
+        <div className="flex min-h-48 shrink-0 flex-col p-5 sm:p-6">
           <div className="flex items-start justify-between gap-4">
             <div>
               <h3 className="text-2xl font-black leading-none tracking-[-0.06em] text-ink sm:text-3xl">{project.title}</h3>
