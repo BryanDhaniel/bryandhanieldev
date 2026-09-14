@@ -2,7 +2,7 @@ import Link from "next/link";
 import { PiArrowRightBold, PiArrowUpRightBold } from "react-icons/pi";
 import { ProjectCard } from "@/app/components/projects/project-card";
 import { SectionMarker } from "@/app/components/ui/section-marker";
-import { featuredProjects, projects } from "@/app/data/projects";
+import { projects, selectedProjects } from "@/app/data/projects";
 
 export function ProjectsSection() {
   return (
@@ -24,14 +24,14 @@ export function ProjectsSection() {
         </header>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-12 lg:gap-7">
-          {featuredProjects.map((project, index) => (
+          {selectedProjects.map((project, index) => (
             <ProjectCard
               key={project.slug}
               project={project}
               featured
               className={index === 0 ? "lg:col-span-8" : index === 1 ? "lg:col-span-4" : "lg:col-span-12"}
               imageSizes={index === 2 ? "(min-width: 1024px) 100vw, 100vw" : undefined}
-              inkReveal={project.slug === "autonomous-lunar-lander"}
+              // inkReveal={project.slug === "autonomous-lunar-lander"}
             />
           ))}
 

@@ -10,7 +10,7 @@ export default function Home() {
           { label: "Projects", href: "/projects" },
           { label: "Experience", href: "#experience" },
           { label: "Skills", href: "#skills" },
-          { label: "Certificates", href: "#credentials" },
+          // { label: "Certificates", href: "#credentials" },
         ]}
         contactText="Say hello"
         contactHref="#contact"

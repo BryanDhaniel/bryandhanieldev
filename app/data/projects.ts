@@ -1,4 +1,4 @@
-export type ProjectCategory = "Web" | "Mobile" | "AI & Data" | "Research" | "Product";
+export type ProjectCategory = "Web" | "Mobile" | "AI & Data" | "Research" | "Product" |"AI & Multi-Agent" |"AI & Developer Tools";
 
 export type Project = {
   order: number;
@@ -157,7 +157,8 @@ export const projects: Project[] = [
       "I contributed to both the MERN web and Flutter mobile experiences, plus integration of the DenseNet-based model.",
     stack: ["MERN", "Flutter", "DenseNet", "Image classification"],
     cover: "/projects/melanotect.webp",
-    link: "https://melanotect.humicprototyping.com/",
+    // link: "https://melanotect.humicprototyping.com/",
+    link: "https://btp.telkomuniversity.ac.id/landing/ip/HCNA2302260286",
     accent: "#ff3366",
   },
   {
@@ -283,9 +284,94 @@ export const projects: Project[] = [
     featured: true,
     accent: "#d7ff54",
   },
+  {
+    order: 14,
+    slug: "soul-chess",
+    title: "SoulChess",
+    year: "2026",
+    category: "Web",
+    team: "Personal project",
+    role: "Game systems & full-stack developer",
+    description: "A fantasy chess strategy game built around a custom 16×16 battlefield and unique piece abilities.",
+    overview:
+    "SoulChess reimagines classic chess as a turn-based fantasy strategy game played on a 16×16 octagonal board, where players build a 20-piece deck and use unique abilities to outmaneuver their opponent.",
+    purpose:
+    "The project explores how traditional chess mechanics can be extended into a larger tactical system through custom board geometry, deck building, special abilities, and multiple AI strategies.",
+    contribution:
+    "I built the core game engine, board and movement logic, deck validation system, piece abilities, AI strategies, game-state management, and the interactive web interface.",
+    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Game AI", "Docker"],
+    cover: "/projects/soul-chess.webp",
+    link: "https://soul-chess-brown.vercel.app/",
+    featured: true,
+    accent: "#d7ff54",
+  },
+  {
+  order: 15,
+  slug: "open-debate",
+  title: "OpenDebate",
+  year: "2026",
+  category: "AI & Multi-Agent",
+  team: "Personal project",
+  role: "AI systems & full-stack developer",
+  description: "A multi-agent debate platform where AI researchers argue, rebut, and judge opposing positions.",
+  overview:
+  "OpenDebate gives two AI debaters the same topic, lets them independently research opposing positions, and orchestrates a structured debate through openings, rebuttals, cross-examination, and closing arguments.",
+  purpose:
+  "The project explores fairer multi-agent reasoning by separating research, debate orchestration, and evaluation, while using an anonymized AI judge to reduce positional bias.",
+  contribution:
+  "I designed the debate state machine, AI debater and judge pipeline, isolated parallel research, structured score validation, and real-time SSE streaming system.",
+  stack: ["Next.js", "TypeScript", "OpenAI", "Tavily", "AI SDK", "SSE"],
+  cover: "/projects/opendebate.webp",
+  link: "https://opendebate-mu.vercel.app/",
+  featured: true,
+  accent: "#00ffc6",
+},
+{
+    order: 16,
+    slug: "my-agent",
+    title: "My-Agent",
+    year: "2026",
+    category: "AI & Developer Tools",
+    team: "Personal project",
+    role: "AI systems developer",
+    description: "A terminal-based AI coding agent built from scratch with a custom agent runtime.",
+    overview:
+    "My-Agent is a Claude Code-inspired coding agent built from scratch, with a hand-rolled agent loop that can reason over tasks, use tools, modify project files, and execute commands through a terminal-native interface.",
+    purpose:
+    "The project explores how modern AI coding agents work internally, focusing on tool use, context management, permissions, multi-provider support, and reliable agent execution.",
+    contribution:
+    "I designed and implemented the agent loop, tool system, provider abstraction, permission controls, context management, session persistence, sub-agents, task orchestration, and Ink-based terminal UI.",
+    stack: ["TypeScript", "Node.js", "LLM Agents", "MCP", "Ink", "Zod"],
+    cover: "/projects/my-agent.webp",
+    link: "https://github.com/BryanDhaniel/my-agent",
+    featured: true,
+    accent: "#d7ff54",
+  },
+
 ];
 
 export const featuredProjects = projects.filter((project) => project.featured);
+
+/**
+ * The three newest projects, most recent first.
+ * Sorts a copy: `projects` must keep its original order because
+ * `getProjectNeighbors` and the archive grid both depend on it.
+ */
+export const latestProjects = [...projects].sort((a, b) => b.order - a.order).slice(0, 3);
+
+/**
+ * Which projects appear in the home page "Selected work" section.
+ *
+ * Edit this list to change the selection — the numbers are each project's
+ * `order` value. The array order is also the display order, and the first
+ * three positions map to the grid slots: large, small, then full-width.
+ */
+export const selectedProjectOrders = [11, 15, 16];
+
+/** The projects named in `selectedProjectOrders`, kept in that exact order. */
+export const selectedProjects = selectedProjectOrders
+  .map((order) => projects.find((project) => project.order === order))
+  .filter((project): project is Project => project !== undefined);
 
 export function getProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
