@@ -1,4 +1,4 @@
-export type ProjectCategory = "Web" | "Mobile" | "AI & Data" | "Research" | "Product" |"AI & Multi-Agent" |"AI & Developer Tools";
+export type ProjectCategory = "Web" | "Mobile" | "AI & Data" | "Research" | "Product" |"AI & Multi-Agent" |"AI & Developer Tools" | "AI & Interactive Simulation";
 
 export type Project = {
   order: number;
@@ -306,28 +306,58 @@ export const projects: Project[] = [
     accent: "#d7ff54",
   },
   {
-  order: 15,
-  slug: "open-debate",
-  title: "OpenDebate",
-  year: "2026",
-  category: "AI & Multi-Agent",
-  team: "Personal project",
-  role: "AI systems & full-stack developer",
-  description: "A multi-agent debate platform where AI researchers argue, rebut, and judge opposing positions.",
-  overview:
-  "OpenDebate gives two AI debaters the same topic, lets them independently research opposing positions, and orchestrates a structured debate through openings, rebuttals, cross-examination, and closing arguments.",
-  purpose:
-  "The project explores fairer multi-agent reasoning by separating research, debate orchestration, and evaluation, while using an anonymized AI judge to reduce positional bias.",
-  contribution:
-  "I designed the debate state machine, AI debater and judge pipeline, isolated parallel research, structured score validation, and real-time SSE streaming system.",
-  stack: ["Next.js", "TypeScript", "OpenAI", "Tavily", "AI SDK", "SSE"],
-  cover: "/projects/opendebate.webp",
-  link: "https://opendebate-mu.vercel.app/",
-  featured: true,
-  accent: "#00ffc6",
-},
-{
+    order: 15,
+    slug: "epos",
+    title: "Epos",
+    year: "2026",
+    category: "AI & Interactive Simulation",
+    team: "OpenAI Hackathon",
+    role: "AI systems & full-stack developer",
+    description:
+      "An interactive historical simulation platform that turns complex events into explorable systems.",
+    overview:
+      "Epos recreates historical scenarios as deterministic, interactive simulations where logistics, weather, resources, trust, incomplete information, and civilian impact influence how events unfold.",
+    purpose:
+      "The project explores how historical events can be taught through systems and simulation rather than passive storytelling, while clearly separating historical evidence from modeled inference and counterfactual scenarios.",
+    contribution:
+      "I designed the simulation engine, historical scenario system, agent state and memory models, replayable counterfactual mechanics, interactive 3D world, and AI-powered historical briefing experience.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Three.js",
+      "React Three Fiber",
+      "Drei",
+      "Zustand",
+      "OpenAI",
+    ],
+    cover: "/projects/epos.webp",
+    link: "https://epos-smoky.vercel.app/",
+    featured: true,
+    accent: "#d7ff54",
+  },
+  {
     order: 16,
+    slug: "open-debate",
+    title: "OpenDebate",
+    year: "2026",
+    category: "AI & Multi-Agent",
+    team: "Personal project",
+    role: "AI systems & full-stack developer",
+    description: "A multi-agent debate platform where AI researchers argue, rebut, and judge opposing positions.",
+    overview:
+    "OpenDebate gives two AI debaters the same topic, lets them independently research opposing positions, and orchestrates a structured debate through openings, rebuttals, cross-examination, and closing arguments.",
+    purpose:
+    "The project explores fairer multi-agent reasoning by separating research, debate orchestration, and evaluation, while using an anonymized AI judge to reduce positional bias.",
+    contribution:
+    "I designed the debate state machine, AI debater and judge pipeline, isolated parallel research, structured score validation, and real-time SSE streaming system.",
+    stack: ["Next.js", "TypeScript", "OpenAI", "Tavily", "AI SDK", "SSE"],
+    cover: "/projects/opendebate.webp",
+    link: "https://opendebate-mu.vercel.app/",
+    featured: true,
+    accent: "#00ffc6",
+  },
+  {
+    order: 17,
     slug: "my-agent",
     title: "My-Agent",
     year: "2026",
@@ -366,7 +396,7 @@ export const latestProjects = [...projects].sort((a, b) => b.order - a.order).sl
  * `order` value. The array order is also the display order, and the first
  * three positions map to the grid slots: large, small, then full-width.
  */
-export const selectedProjectOrders = [11, 15, 16];
+export const selectedProjectOrders = [15, 16, 17];
 
 /** The projects named in `selectedProjectOrders`, kept in that exact order. */
 export const selectedProjects = selectedProjectOrders
