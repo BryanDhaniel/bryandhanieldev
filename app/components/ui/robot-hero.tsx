@@ -32,19 +32,22 @@ function ResponsiveGroup({ children }: { children: React.ReactNode }) {
 function GlassCapsule({ color, power, intensity }: { color: string, power: number, intensity: number }) {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
-  const uniforms = useMemo(() => ({
-    color: { value: new THREE.Color('#ffffff') },
-    power: { value: 2.5 },
-    intensity: { value: 0.6 },
-  }), []);
+  // Seeded once from the initial props so there is no first-frame flash, then
+  // updated by the effect below only when the values actually change.
+  const [uniforms] = useState(() => ({
+    color: { value: new THREE.Color(color) },
+    power: { value: power },
+    intensity: { value: intensity },
+  }));
 
-  useFrame(() => {
-    if (materialRef.current) {
-      materialRef.current.uniforms.color.value.set(color);
-      materialRef.current.uniforms.power.value = power;
-      materialRef.current.uniforms.intensity.value = intensity;
-    }
-  });
+  useEffect(() => {
+    const material = materialRef.current;
+    if (!material) return;
+
+    material.uniforms.color.value.set(color);
+    material.uniforms.power.value = power;
+    material.uniforms.intensity.value = intensity;
+  }, [color, power, intensity]);
 
   return (
     <mesh>
@@ -613,6 +616,24 @@ export function RobotHero({
 }: RobotHeroProps = {}) {
   const containerRef = useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
+
+  // The scene animates every frame, so stop the render loop completely once the
+  // hero scrolls out of view. This only removes wasted GPU work while the user is
+  // reading other sections; nothing about it is visible.
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsHeroVisible(entry.isIntersecting),
+      { threshold: 0 },
+    );
+
+    observer.observe(node);
+
+    return () => observer.disconnect();
+  }, []);
 
   const entorno = {
     fondoArriba: '#cecbcb',
@@ -657,8 +678,9 @@ export function RobotHero({
       <div className="absolute inset-0 z-10">
         <Canvas
           shadows
+          dpr={[1, 1.5]}
           camera={{ position: [0, 0.2, 6], fov: 40 }}
-          frameloop={shouldReduceMotion ? "demand" : "always"}
+          frameloop={shouldReduceMotion ? "demand" : isHeroVisible ? "always" : "never"}
           fallback={
             <div aria-hidden="true" className="grid h-full w-full place-items-center">
               <div className="relative h-36 w-40 rounded-[2.25rem] bg-[#111] shadow-[0_20px_50px_rgba(0,0,0,0.3)]">
@@ -679,7 +701,7 @@ export function RobotHero({
             intensity={entorno.luzPrincipal}
             color={entorno.luzPrincipalColor}
             castShadow
-            shadow-mapSize={[2048, 2048]}
+            shadow-mapSize={[1024, 1024]}
             shadow-bias={-0.0005}
           >
             <orthographicCamera attach="shadow-camera" args={[-1.5, 1.5, 1.5, -1.5, 0.1, 20]} />
@@ -690,7 +712,7 @@ export function RobotHero({
           <Environment preset="studio" blur={0.5} />
 
           <ResponsiveGroup>
-            <ContactShadows position={[0, -0.79, 0]} opacity={entorno.sombraOpacidad} scale={15} resolution={1024} blur={entorno.sombraBlur} far={2.5} color="#000000" />
+            <ContactShadows position={[0, -0.79, 0]} opacity={entorno.sombraOpacidad} scale={15} resolution={512} blur={entorno.sombraBlur} far={2.5} color="#000000" />
             <RobotPrototype
               neckParams={{ baseR: 0.215, baseH: -0.050, midR: 0.280, midH: 0.020, lipBottomR: 0.295, lipBottomH: 0.045, lipTopR: 0.270, lipTopH: 0.055, innerR: 0.100, innerDropH: 0.000 }}
               bodyParams={{ bodyBevelR: 0.235, bodyBevelY: 0.340, bodyBevelT: 0.025 }}

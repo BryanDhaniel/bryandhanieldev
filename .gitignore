@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# WorkBuddy AI agent memory (local session notes, not project source)
+/.workbuddy-ai/memory/
